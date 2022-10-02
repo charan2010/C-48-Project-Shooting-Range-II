@@ -79,6 +79,7 @@ function draw() {
     if(blueBubbleGroup.collide(bulletGroup)){
       handleBubbleCollision(blueBubbleGroup);
     }
+
     if(redBubbleGroup.collide(bulletGroup)){
       handleBubbleCollision(redBubbleGroup);
     }
@@ -132,5 +133,18 @@ function handleGameover(bubbleGroup){
     if (life === 0) {
       gameState = 2;
       sadSound.play();
+      swal({
+          title: "",
+          text: "",
+          imageUrl:"https://thumbs.gfycat.com/AlertElderlyHornet-max-1mb.gif",
+          imageSize: "350x350",
+          confirmButtonText: "Play Again"
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+            location.reload();
+          }
+        }
+      );
     }
 }
